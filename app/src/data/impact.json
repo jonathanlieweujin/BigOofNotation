@@ -1,0 +1,82 @@
+{
+  "revenue_at_risk": 4242996,
+  "accounts_under_observation": 285,
+  "accounts_at_risk": 413,
+  "interventions_recommended": 349,
+  "tier_counts": {
+    "HIGH": 104,
+    "MEDIUM": 309,
+    "LOW": 285
+  },
+  "action_breakdown": [
+    {
+      "action": "WORKAROUND",
+      "label": "Micro-guide / workaround",
+      "cost_rank": 1,
+      "count": 203,
+      "ltv_covered": 1706220
+    },
+    {
+      "action": "CSM_SETUP",
+      "label": "CSM setup session",
+      "cost_rank": 2,
+      "count": 59,
+      "ltv_covered": 775620
+    },
+    {
+      "action": "NAMED_OWNER",
+      "label": "Named human ownership",
+      "cost_rank": 3,
+      "count": 3,
+      "ltv_covered": 1764
+    },
+    {
+      "action": "ENG_FIX",
+      "label": "Engineering fix",
+      "cost_rank": 4,
+      "count": 16,
+      "ltv_covered": 247932
+    },
+    {
+      "action": "DOWNGRADE",
+      "label": "Proactive downgrade",
+      "cost_rank": 5,
+      "count": 55,
+      "ltv_covered": 764820
+    },
+    {
+      "action": "DISCOUNT",
+      "label": "Discount",
+      "cost_rank": 6,
+      "count": 13,
+      "ltv_covered": 49932
+    }
+  ],
+  "diagnosis_breakdown": [
+    {
+      "diagnosis": "UNRESOLVED_FRICTION",
+      "label": "Unresolved friction",
+      "count": 269
+    },
+    {
+      "diagnosis": "WRONG_FIT",
+      "label": "Wrong fit",
+      "count": 39
+    },
+    {
+      "diagnosis": "VALUE_DOUBT",
+      "label": "Value doubt",
+      "count": 36
+    },
+    {
+      "diagnosis": "UNREALISED_VALUE",
+      "label": "Unrealised value",
+      "count": 13
+    },
+    {
+      "diagnosis": "RELATIONSHIP_GAP",
+      "label": "Relationship gap",
+      "count": 3
+    }
+  ]
+}
