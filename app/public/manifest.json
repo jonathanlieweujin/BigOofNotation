@@ -1,10 +1,10 @@
 {
-  "short_name": "AppName",
-  "name": "AppName, retention that acts, not notifies",
+  "short_name": "Re-Engage",
+  "name": "Re-Engage, retention that acts, not notifies",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "icon.ico",
+      "sizes": "32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],

@@ -1,11 +1,14 @@
 import React from "react";
 import { APP_NAME, DEMO_USER } from "../HardCodedData";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES, RouteEnum } from "../constants/RouteEnum";
 
 export default function Account({ onSignOut }) {
+  usePageTitle(PAGE_TITLES[RouteEnum.ACCOUNT]);
   return (
     <>
       <h1 className="page-title">Account</h1>
-      <p className="page-subtitle">Single role, no teams, no permissions.</p>
+      {/* <p className="page-subtitle">Single role, no teams, no permissions.</p> */}
 
       <div className="card">
         <h2>Signed in as</h2>
@@ -22,9 +25,9 @@ export default function Account({ onSignOut }) {
         </p>
       </div>
 
-      <button className="btn btn--secondary" onClick={onSignOut}>
+      {/* <button className="btn btn--secondary" onClick={onSignOut}>
         Sign out
-      </button>
+      </button> */}
     </>
   );
 }

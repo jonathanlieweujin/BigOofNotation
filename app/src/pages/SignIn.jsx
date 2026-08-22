@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { APP_NAME, APP_TAGLINE, checkLogin } from "../HardCodedData";
+import Logo from "../components/Logo";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES } from "../constants/RouteEnum";
 import "../styles/SignIn.css";
 
 export default function SignIn({ onSignIn }) {
+  usePageTitle(PAGE_TITLES.SIGN_IN);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +25,7 @@ export default function SignIn({ onSignIn }) {
     <div className="signin-wrap">
       <form className="signin-card card" onSubmit={submit}>
         <div className="signin-brand">
-          <span className="nav-logo" aria-hidden="true" />
+          <Logo />
           <span className="signin-name">{APP_NAME}</span>
         </div>
         <p className="signin-tagline">{APP_TAGLINE}</p>

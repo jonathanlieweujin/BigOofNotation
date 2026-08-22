@@ -2,13 +2,19 @@
   font-size: var(--fs-hero);
   font-weight: var(--fw-bold);
   line-height: 1.1;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .kpi-row {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   flex-wrap: wrap;
+  /* The row owns the bottom gap now that its cards do not. */
+  margin-bottom: 8px;
+}
+
+.kpi-row:last-child {
+  margin-bottom: 0;
 }
 
 .kpi {
@@ -18,7 +24,7 @@
 .kpi-value {
   font-size: var(--fs-header);
   font-weight: var(--fw-semibold);
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .kpi-sub {
@@ -26,10 +32,12 @@
   font-weight: var(--fw-regular);
 }
 
+/* Sits below the chart, so the gap goes above it. */
 .legend {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--gap-lg);
-  margin-bottom: var(--gap-md);
+  margin-top: 8px;
 }
 
 .legend-item {
@@ -41,7 +49,7 @@
 }
 
 .grouped-row {
-  margin-bottom: var(--gap-md);
+  margin-bottom: 6px;
 }
 
 .grouped-label {
@@ -67,4 +75,9 @@
 .gb-value {
   font-size: var(--fs-small);
   color: var(--ink-secondary);
+}
+
+/* Muted copy that follows a heading, e.g. the repeat-churn figure. */
+.card h2 + .muted {
+  margin-top: 8px;
 }

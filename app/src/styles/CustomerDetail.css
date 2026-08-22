@@ -1,7 +1,43 @@
-.back-link {
-  display: inline-block;
-  font-size: var(--fs-small);
-  margin-bottom: var(--gap-sm);
+/* Back button and title on one horizontal row. */
+.detail-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--gap-md);
+}
+
+/* Same fill colour as .btn; the chevron is the light cutout. */
+.back-btn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: var(--fs-header);
+  padding: 8px;
+  box-sizing: border-box;
+  background: var(--button);
+  border-radius: var(--radius);
+  transition: background 300ms ease-in-out;
+}
+
+.back-btn:hover {
+  background: var(--button-hover);
+}
+
+.back-btn svg {
+  display: block;
+  /* 15:27 native ratio, so height leads and width follows. */
+  height: 100%;
+  width: 55.6%;
+}
+
+/* The row owns the spacing now. */
+.detail-head .page-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 /* The one-sentence why is the largest text on the page. */
@@ -14,23 +50,26 @@
 .why-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--gap-sm);
   margin-top: var(--gap-md);
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
   font-size: var(--fs-small);
-  padding: 2px var(--gap-sm);
+  padding: 6px 12px;
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
   color: var(--ink-secondary);
 }
 
-.hint {
+/* .hint {
   font-size: var(--fs-small);
   color: var(--ink-muted);
   margin: 6px 0 var(--gap-md);
-}
+} */
 
 .evidence,
 .rejected,
