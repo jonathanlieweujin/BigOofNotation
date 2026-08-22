@@ -1,5 +1,5 @@
 import React from "react";
-import { FRICTION } from "../HardCodedData";
+import FRICTION from "../data/friction.json";
 import "../styles/Friction.css";
 
 const money = (n) => "RM" + n.toLocaleString();
