@@ -11,10 +11,10 @@ export default function Friction() {
   return (
     <>
       <h1 className="page-title">Friction</h1>
-      <p className="page-subtitle">
+      {/* <p className="page-subtitle">
         Stated causes clustered across accounts, sorted by revenue at risk. One
         account is anecdote; seventeen is a defect report.
-      </p>
+      </p> */}
 
       <div className="card">
         {sorted.map((f, i) => (

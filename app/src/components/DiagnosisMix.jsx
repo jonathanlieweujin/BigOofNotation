@@ -13,7 +13,7 @@ export default function DiagnosisMix({ mix, active, onSelect }) {
   return (
     <div className="dmix">
       <h2>Diagnosis mix</h2>
-      <p className="hint">What is driving churn. Click to filter the queue.</p>
+      {/* <p className="hint">What is driving churn. Click to filter the queue.</p> */}
 
       {mix.map((m) => {
         const isActive = active === m.id;
@@ -23,7 +23,7 @@ export default function DiagnosisMix({ mix, active, onSelect }) {
             className={"dmix-row" + (isActive ? " dmix-row--active" : "")}
             onClick={() => onSelect(isActive ? null : m.id)}
             aria-pressed={isActive}
-            title={`${m.label}: ${m.count} account${m.count === 1 ? "" : "s"}`}
+            title={`${m.label}: ${m.count} customer${m.count === 1 ? "" : "s"}`}
           >
             <span className="dmix-label">
               {m.label}

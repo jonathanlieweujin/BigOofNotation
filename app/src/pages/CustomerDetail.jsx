@@ -9,17 +9,18 @@ import {
   getAccount,
 } from "../HardCodedData";
 import EvidenceBar from "../components/EvidenceBar";
-import "../styles/AccountDetail.css";
+import { RouteEnum } from "../constants/RouteEnum";
+import "../styles/CustomerDetail.css";
 
-export default function AccountDetail() {
+export default function CustomerDetail() {
   const { id } = useParams();
   const a = getAccount(id);
 
   if (!a) {
     return (
       <>
-        <h1 className="page-title">Account not found</h1>
-        <Link to="/accounts">Back to accounts</Link>
+        <h1 className="page-title">Customer not found</h1>
+        <Link to={RouteEnum.CUSTOMERS}>Back to customers</Link>
       </>
     );
   }
@@ -31,10 +32,21 @@ export default function AccountDetail() {
 
   return (
     <>
-      <Link to="/accounts" className="back-link">
-        ← Accounts
-      </Link>
-      <h1 className="page-title">{a.name}</h1>
+      <div className="detail-head">
+        <Link
+          to={RouteEnum.CUSTOMERS}
+          className="back-btn"
+          aria-label="Back to customers"
+        >
+          <svg viewBox="0 0 15 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.6365 2.24967C13.7567 2.12237 13.8508 1.97263 13.9132 1.80899C13.9756 1.64535 14.0052 1.47102 14.0003 1.29595C13.9953 1.12088 13.9559 0.948504 13.8843 0.788656C13.8128 0.628808 13.7104 0.484623 13.5831 0.364332C13.4558 0.244041 13.3061 0.150001 13.1424 0.0875803C12.9788 0.0251596 12.8045 -0.00441913 12.6294 0.000533336C12.4543 0.0054858 12.282 0.0448722 12.1221 0.116444C11.9623 0.188016 11.8181 0.290371 11.6978 0.417665L0.364457 12.4177C0.130408 12.6652 0 12.993 0 13.3337C0 13.6743 0.130408 14.0021 0.364457 14.2497L11.6978 26.251C11.8173 26.3811 11.9614 26.4861 12.1219 26.56C12.2823 26.6339 12.4558 26.6752 12.6324 26.6815C12.8089 26.6877 12.9849 26.6589 13.1502 26.5966C13.3154 26.5342 13.4667 26.4397 13.5951 26.3184C13.7235 26.1971 13.8266 26.0516 13.8983 25.8901C13.97 25.7287 14.0089 25.5546 14.0127 25.378C14.0166 25.2014 13.9853 25.0258 13.9207 24.8614C13.8561 24.697 13.7595 24.5471 13.6365 24.4203L3.16712 13.3337L13.6365 2.24967Z"
+              fill="#EFEFEF"
+            />
+          </svg>
+        </Link>
+        <h1 className="page-title">{a.name}</h1>
+      </div>
 
       {/* The one-sentence why, largest text on the page. */}
       <div className="card">
@@ -48,10 +60,10 @@ export default function AccountDetail() {
 
       <div className="card">
         <h2>Evidence</h2>
-        <p className="hint">
+        {/* <p className="hint">
           Every signal that fired, and its weight. All evidence is self-reported,
           and text-only input has no way to falsify a stated cause.
-        </p>
+        </p> */}
         <EvidenceBar evidence={a.evidence} score={a.confidence} tier={tier} />
 
         <ul className="evidence">

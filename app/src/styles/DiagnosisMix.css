@@ -5,11 +5,11 @@
   padding: 20px;
 }
 
-.dmix .hint {
+/* .dmix .hint {
   font-size: var(--fs-small);
   color: var(--ink-muted);
   margin: 6px 0 var(--gap-md);
-}
+} */
 
 .dmix-row {
   display: block;
@@ -48,12 +48,12 @@
 .dmix-fill {
   display: block;
   height: 100%;
-  background: var(--cat-1);
+  background: var(--button);
   border-radius: 4px;
 }
 
 .dmix-row--active .dmix-fill {
-  background: var(--cat-1);
+  background: var(--button);
 }
 
 .dmix-row:not(.dmix-row--active) .dmix-fill {

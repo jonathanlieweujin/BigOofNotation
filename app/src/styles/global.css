@@ -63,13 +63,14 @@ button {
   flex: 0 0 var(--nav-width);
   background: var(--surface);
   border-right: 1px solid var(--border-1);
-  padding: var(--gap-lg);
+  padding: 40px 20px;
   overflow-y: auto;
 }
 
 .app-content {
   flex: 1 1 auto;
-  padding: var(--pad-outer);
+  min-width: 0;
+  padding: 40px 20px;
   overflow-y: auto;
 }
 
@@ -79,20 +80,34 @@ button {
   background: var(--surface);
   border: 1px solid var(--border-1);
   border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 16px;
+  padding: 16px 20px;
+  margin-bottom: 8px;
+}
+
+/* No trailing gap on the last card in a stack. :last-child covers the plain
+   case; :last-of-type also catches a card followed by a button or paragraph. */
+.card:last-child,
+.card:last-of-type {
+  margin-bottom: 0;
+}
+
+/* The KPI row lays cards out side by side, so none of them owns the
+   bottom gap; the row itself provides it. */
+.kpi-row .card {
+  margin-bottom: 0;
 }
 
 .page-title {
   font-size: var(--fs-header);
   font-weight: var(--fw-semibold);
-  margin-bottom: var(--gap-sm);
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
-.page-subtitle {
+/* .page-subtitle {
   color: var(--ink-secondary);
   margin-bottom: 16px;
-}
+} */
 
 .btn {
   background: var(--button);
@@ -125,11 +140,12 @@ button {
 /* Status badge, colour is ALWAYS paired with the text label inside it. */
 .badge {
   display: inline-flex;
+  width: 100px;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
-  padding: 2px var(--gap-sm);
+  padding: 6px 12px;
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
   background: var(--surface);

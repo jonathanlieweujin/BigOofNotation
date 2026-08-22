@@ -5,7 +5,7 @@ export default function Account({ onSignOut }) {
   return (
     <>
       <h1 className="page-title">Account</h1>
-      <p className="page-subtitle">Single role, no teams, no permissions.</p>
+      {/* <p className="page-subtitle">Single role, no teams, no permissions.</p> */}
 
       <div className="card">
         <h2>Signed in as</h2>
@@ -22,9 +22,9 @@ export default function Account({ onSignOut }) {
         </p>
       </div>
 
-      <button className="btn btn--secondary" onClick={onSignOut}>
+      {/* <button className="btn btn--secondary" onClick={onSignOut}>
         Sign out
-      </button>
+      </button> */}
     </>
   );
 }

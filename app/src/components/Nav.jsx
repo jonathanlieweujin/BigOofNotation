@@ -1,14 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { APP_NAME } from "../HardCodedData";
+import { NAV_ITEMS } from "../constants/RouteEnum";
 import "../styles/Nav.css";
-
-const LINKS = [
-  { to: "/accounts", label: "Accounts" },
-  { to: "/friction", label: "Friction" },
-  { to: "/impact", label: "Impact" },
-  { to: "/account", label: "Account" },
-];
 
 export default function Nav({ onSignOut }) {
   return (
@@ -20,7 +14,7 @@ export default function Nav({ onSignOut }) {
       </div>
 
       <ul className="nav-list">
-        {LINKS.map((l) => (
+        {NAV_ITEMS.map((l) => (
           <li key={l.to}>
             <NavLink
               to={l.to}

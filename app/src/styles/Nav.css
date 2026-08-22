@@ -26,12 +26,12 @@
 }
 
 .nav-list li {
-  margin-bottom: var(--gap-sm);
+  margin-bottom: 4px;
 }
 
 .nav-link {
   display: block;
-  padding: var(--gap-sm) 12px;
+  padding: 8px 12px;
   border-radius: var(--radius);
   color: var(--ink-secondary);
   font-weight: var(--fw-medium);
@@ -44,7 +44,6 @@
 .nav-link--active {
   background: var(--bg);
   color: var(--ink-primary);
-  font-weight: var(--fw-semibold);
 }
 
 .nav-signout {

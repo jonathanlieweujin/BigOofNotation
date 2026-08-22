@@ -29,28 +29,12 @@
   color: var(--ink-muted);
 }
 
-/* Two-column queue: table left, diagnosis mix right. */
-.queue-layout {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.queue-main {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.queue-side {
-  flex: 0 0 260px;
-}
-
 .filter-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-md);
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: stretch;
+  margin-bottom: 8px;
 }
 
 .filter-search {
@@ -70,10 +54,13 @@
 
 .tier-filters {
   display: flex;
-  gap: var(--gap-sm);
+  align-self: stretch;
+  align-items: stretch;
+  gap: 6px;
 }
 
 .chip-btn {
+  width: 80px;
   background: var(--surface);
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
@@ -81,7 +68,7 @@
   font-size: var(--fs-small);
   color: var(--ink-secondary);
   transition: background 300ms ease-in-out, border-color 300ms ease-in-out,
-    color 300ms ease-in-out;
+    color 150ms ease-in-out;
 }
 
 .chip-btn:hover {
@@ -106,11 +93,27 @@
   margin-top: var(--gap-md);
 }
 
-/* Stack the sidebar under the table on narrow viewports. */
+/* Table card and the diagnosis panel side by side. */
+.queue-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.queue-card {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.queue-side {
+  flex: 0 0 260px;
+}
+
 @media (max-width: 1000px) {
-  .queue-layout {
+  .queue-row {
     flex-direction: column;
   }
+
   .queue-side {
     flex: 1 1 auto;
     width: 100%;
