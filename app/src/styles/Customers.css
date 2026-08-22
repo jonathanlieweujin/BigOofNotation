@@ -32,7 +32,7 @@
 .filter-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap-md);
+  gap: 8px;
   align-items: stretch;
   margin-bottom: 8px;
 }
@@ -40,7 +40,7 @@
 .filter-search {
   font: inherit;
   padding: 8px 12px;
-  min-width: 200px;
+  flex: 1 1 200px;
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
   background: var(--surface);
@@ -54,13 +54,15 @@
 
 .tier-filters {
   display: flex;
+  width: 260px;
+  flex-shrink: 0;
   align-self: stretch;
   align-items: stretch;
   gap: 6px;
 }
 
 .chip-btn {
-  width: 80px;
+  flex: 1 1 0;
   background: var(--surface);
   border: 1px solid var(--border-2);
   border-radius: var(--radius);

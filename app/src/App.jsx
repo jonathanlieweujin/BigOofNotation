@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import SignIn from "./pages/SignIn";
+import Overview from "./pages/Overview";
 import Customers from "./pages/Customers";
 import CustomerDetail from "./pages/CustomerDetail";
 import Friction from "./pages/Friction";
@@ -47,8 +48,9 @@ export default function App() {
         <Routes>
           <Route
             path="/"
-            element={<Navigate to={RouteEnum.CUSTOMERS} replace />}
+            element={<Navigate to={RouteEnum.OVERVIEW} replace />}
           />
+          <Route path={RouteEnum.OVERVIEW} element={<Overview />} />
           <Route path={RouteEnum.CUSTOMERS} element={<Customers />} />
           <Route path={RouteEnum.CUSTOMER_DETAIL} element={<CustomerDetail />} />
           <Route path={RouteEnum.FRICTION} element={<Friction />} />
@@ -59,7 +61,7 @@ export default function App() {
           />
           <Route
             path="*"
-            element={<Navigate to={RouteEnum.CUSTOMERS} replace />}
+            element={<Navigate to={RouteEnum.OVERVIEW} replace />}
           />
         </Routes>
       </main>

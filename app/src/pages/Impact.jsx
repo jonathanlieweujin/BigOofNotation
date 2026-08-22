@@ -12,7 +12,7 @@ export default function Impact() {
 
   return (
     <>
-      <h1 className="page-title">Impact</h1>
+      <h1 className="page-title">Results</h1>
       {/* <p className="page-subtitle">
         Retained revenue reported net of what the concessions cost, so an
         intervention that cost more than the customer was worth shows up as such.

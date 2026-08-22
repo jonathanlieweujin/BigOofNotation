@@ -83,6 +83,24 @@ def build_friction(records: list[dict]) -> list[dict]:
     return out
 
 
+def _action_breakdown(committed: list[dict]) -> list[dict]:
+    action_counts = defaultdict(lambda: {"count": 0, "ltv": 0})
+    for r in committed:
+        action_counts[r["recommended"]]["count"] += 1
+        action_counts[r["recommended"]]["ltv"] += r["ltv"]
+
+    return [
+        {
+            "action": action_id,
+            "label": ACTIONS[action_id]["label"],
+            "cost_rank": ACTIONS[action_id]["cost_rank"],
+            "count": v["count"],
+            "ltv_covered": v["ltv"],
+        }
+        for action_id, v in sorted(action_counts.items(), key=lambda kv: ACTIONS[kv[0]]["cost_rank"])
+    ]
+
+
 def build_impact(records: list[dict]) -> dict:
     at_risk = [r for r in records if r["tier"] in ("HIGH", "MEDIUM")]
     committed = [r for r in records if r["recommended"]]
@@ -90,11 +108,6 @@ def build_impact(records: list[dict]) -> dict:
     tier_counts = defaultdict(int)
     for r in records:
         tier_counts[r["tier"]] += 1
-
-    action_counts = defaultdict(lambda: {"count": 0, "ltv": 0})
-    for r in committed:
-        action_counts[r["recommended"]]["count"] += 1
-        action_counts[r["recommended"]]["ltv"] += r["ltv"]
 
     diagnosis_breakdown = defaultdict(int)
     for r in at_risk:
@@ -107,16 +120,16 @@ def build_impact(records: list[dict]) -> dict:
         "accounts_at_risk": len(at_risk),
         "interventions_recommended": len(committed),
         "tier_counts": dict(tier_counts),
-        "action_breakdown": [
-            {
-                "action": action_id,
-                "label": ACTIONS[action_id]["label"],
-                "cost_rank": ACTIONS[action_id]["cost_rank"],
-                "count": v["count"],
-                "ltv_covered": v["ltv"],
-            }
-            for action_id, v in sorted(action_counts.items(), key=lambda kv: ACTIONS[kv[0]]["cost_rank"])
-        ],
+        # All-tier total, kept for backwards compatibility with anything
+        # already reading this field.
+        "action_breakdown": _action_breakdown(committed),
+        # Same shape, split by confidence tier -- LOW is included for
+        # completeness but is always empty by design: no action is ever
+        # recommended below the action threshold (the fail-safe default).
+        "action_breakdown_by_tier": {
+            tier: _action_breakdown([r for r in committed if r["tier"] == tier])
+            for tier in ("HIGH", "MEDIUM", "LOW")
+        },
         "diagnosis_breakdown": [
             {"diagnosis": d, "label": DIAGNOSES[d]["label"], "count": c}
             for d, c in sorted(diagnosis_breakdown.items(), key=lambda kv: kv[1], reverse=True)

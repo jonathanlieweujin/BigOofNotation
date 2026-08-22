@@ -52,6 +52,97 @@
       "ltv_covered": 49932
     }
   ],
+  "action_breakdown_by_tier": {
+    "HIGH": [
+      {
+        "action": "WORKAROUND",
+        "label": "Micro-guide / workaround",
+        "cost_rank": 1,
+        "count": 52,
+        "ltv_covered": 579960
+      },
+      {
+        "action": "CSM_SETUP",
+        "label": "CSM setup session",
+        "cost_rank": 2,
+        "count": 19,
+        "ltv_covered": 364716
+      },
+      {
+        "action": "NAMED_OWNER",
+        "label": "Named human ownership",
+        "cost_rank": 3,
+        "count": 1,
+        "ltv_covered": 1764
+      },
+      {
+        "action": "ENG_FIX",
+        "label": "Engineering fix",
+        "cost_rank": 4,
+        "count": 3,
+        "ltv_covered": 8928
+      },
+      {
+        "action": "DOWNGRADE",
+        "label": "Proactive downgrade",
+        "cost_rank": 5,
+        "count": 16,
+        "ltv_covered": 368424
+      },
+      {
+        "action": "DISCOUNT",
+        "label": "Discount",
+        "cost_rank": 6,
+        "count": 4,
+        "ltv_covered": 23256
+      }
+    ],
+    "MEDIUM": [
+      {
+        "action": "WORKAROUND",
+        "label": "Micro-guide / workaround",
+        "cost_rank": 1,
+        "count": 151,
+        "ltv_covered": 1126260
+      },
+      {
+        "action": "CSM_SETUP",
+        "label": "CSM setup session",
+        "cost_rank": 2,
+        "count": 40,
+        "ltv_covered": 410904
+      },
+      {
+        "action": "NAMED_OWNER",
+        "label": "Named human ownership",
+        "cost_rank": 3,
+        "count": 2,
+        "ltv_covered": 0
+      },
+      {
+        "action": "ENG_FIX",
+        "label": "Engineering fix",
+        "cost_rank": 4,
+        "count": 13,
+        "ltv_covered": 239004
+      },
+      {
+        "action": "DOWNGRADE",
+        "label": "Proactive downgrade",
+        "cost_rank": 5,
+        "count": 39,
+        "ltv_covered": 396396
+      },
+      {
+        "action": "DISCOUNT",
+        "label": "Discount",
+        "cost_rank": 6,
+        "count": 9,
+        "ltv_covered": 26676
+      }
+    ],
+    "LOW": []
+  },
   "diagnosis_breakdown": [
     {
       "diagnosis": "UNRESOLVED_FRICTION",

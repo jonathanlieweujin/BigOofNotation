@@ -1,0 +1,164 @@
+
+/* ---- Confidence tier bar: single track, three coloured segments ---- */
+
+.tier-heading {
+  margin-bottom: 12px;
+}
+
+.tier-bar {
+  display: flex;
+  height: 14px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.tier-seg {
+  display: block;
+  height: 100%;
+}
+
+/* 2px surface gap between segments, same rule as the grouped bars. */
+.tier-seg + .tier-seg {
+  margin-left: 2px;
+}
+
+.tier-seg--bad {
+  background: var(--status-bad);
+}
+.tier-seg--warn {
+  background: var(--status-warn);
+}
+.tier-seg--good {
+  background: var(--status-good);
+}
+
+.tier-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-lg);
+  margin-top: var(--gap-sm);
+}
+
+.tier-swatch--bad {
+  background: var(--status-bad);
+}
+.tier-swatch--warn {
+  background: var(--status-warn);
+}
+.tier-swatch--good {
+  background: var(--status-good);
+}
+
+/* ---- Action breakdown header: title + filter dropdowns ---- */
+
+.action-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-bottom: var(--gap-md);
+}
+
+.action-filters {
+  display: flex;
+  gap: var(--gap-sm);
+}
+
+.action-select {
+  font: inherit;
+  font-size: var(--fs-small);
+  color: var(--ink-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  min-width: 180px;
+  cursor: pointer;
+}
+
+.action-select:hover {
+  border-color: var(--button-hover);
+}
+
+/* ---- Action breakdown: fixed cheapest-first order, length = count ---- */
+
+.action-row {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 6px 0;
+}
+
+.ov-action-label {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--ink-secondary);
+}
+
+.action-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+.action-meta .action-track {
+  flex: 1 1 auto;
+}
+
+.action-meta .action-count {
+  flex: 0 0 32px;
+}
+
+.action-track {
+  display: block;
+  height: 10px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.action-fill {
+  display: block;
+  height: 100%;
+  background: var(--button);
+  border-radius: 4px;
+}
+
+.action-count {
+  font-size: var(--fs-small);
+  text-align: right;
+}
+
+/* ---- Friction preview: table form, links out to the full page ---- */
+
+.friction-preview-table {
+  table-layout: fixed;
+  margin-bottom: var(--gap-sm);
+}
+
+.friction-preview-table th:nth-child(1),
+.friction-preview-table td:nth-child(1) {
+  width: 70%;
+}
+
+.friction-preview-table th:nth-child(2),
+.friction-preview-table td:nth-child(2),
+.friction-preview-table th:nth-child(3),
+.friction-preview-table td:nth-child(3) {
+  width: 15%;
+}
+
+.friction-preview-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.overview-link {
+  display: inline-block;
+  margin-top: var(--gap-md);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+}

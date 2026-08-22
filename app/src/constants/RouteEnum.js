@@ -2,6 +2,7 @@
    Change a path here and every link, route, and redirect follows. */
 
 export const RouteEnum = {
+  OVERVIEW: "/overview",
   CUSTOMERS: "/customers",
   CUSTOMER_DETAIL: "/customers/:id",
   FRICTION: "/friction",
@@ -11,18 +12,20 @@ export const RouteEnum = {
 
 /* Labels shown in the left nav, in display order. */
 export const NAV_ITEMS = [
+  { to: RouteEnum.OVERVIEW, label: "Overview" },
   { to: RouteEnum.CUSTOMERS, label: "Customers" },
-  { to: RouteEnum.FRICTION, label: "Friction" },
-  { to: RouteEnum.IMPACT, label: "Impact" },
+  { to: RouteEnum.FRICTION, label: "Issues" },
+  { to: RouteEnum.IMPACT, label: "Results" },
   { to: RouteEnum.ACCOUNT, label: "Account" },
 ];
 
 /* Browser tab titles, rendered as "Re-Engage | <suffix>". */
 export const PAGE_TITLES = {
   SIGN_IN: "Log-In",
+  [RouteEnum.OVERVIEW]: "Overview",
   [RouteEnum.CUSTOMERS]: "Customers",
-  [RouteEnum.FRICTION]: "Friction",
-  [RouteEnum.IMPACT]: "Impact",
+  [RouteEnum.FRICTION]: "Issues",
+  [RouteEnum.IMPACT]: "Results",
   [RouteEnum.ACCOUNT]: "Account",
 };
 

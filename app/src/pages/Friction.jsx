@@ -13,7 +13,7 @@ export default function Friction() {
 
   return (
     <>
-      <h1 className="page-title">Friction</h1>
+      <h1 className="page-title">Issues</h1>
       {/* <p className="page-subtitle">
         Stated causes clustered across accounts, sorted by revenue at risk. One
         account is anecdote; seventeen is a defect report.
