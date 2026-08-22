@@ -129,12 +129,16 @@ button {
   background: transparent;
   color: var(--ink-primary);
   border: 1px solid var(--border-2);
+  font-size: var(--fs-small);
+  transition: background 150ms ease-in-out, border-color 150ms ease-in-out,
+    color 150ms ease-in-out;
 }
 
+/* Inverts on hover: fill and border take the text colour, label goes light. */
 .btn--secondary:hover {
-  background: transparent;
-  border-color: var(--button-hover);
-  color: var(--button-hover);
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  color: var(--surface);
 }
 
 /* Status badge, colour is ALWAYS paired with the text label inside it. */

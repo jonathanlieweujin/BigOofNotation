@@ -32,6 +32,7 @@
   padding: 8px 12px;
   border-radius: var(--radius);
   color: var(--ink-secondary);
+  font-size: 14px;
   font-weight: var(--fw-medium);
 }
 
@@ -46,6 +47,7 @@
 
 .nav-signout {
   width: 100%;
+  padding: 8px 12px;
 }
 
 /* ---- Desktop: fixed left sidebar, no top bar ---- */
