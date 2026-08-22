@@ -1,0 +1,64 @@
+/* Design tokens, single source of truth. Values from track/style.md.
+   Change a colour or size HERE, never inline in a component. */
+
+:root {
+  /* Type */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fs-header: 20px;
+  --fs-base: 16px;
+  --fs-small: 14px;
+  --fs-hero: 20px;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --pad-outer: 40px;
+  --gap-lg: 40px;
+  --gap-md: 16px;
+  --gap-sm: 8px;
+  --radius: 8px;
+
+  /* Surfaces & borders */
+  --bg: #efefef;
+  --surface: #ffffff;
+  --border-1: #d7dee5;
+  --border-2: #c6ccd2;
+
+  /* Ink, text NEVER wears a series colour */
+  --ink-primary: #1a1a1a;
+  --ink-secondary: #4a4a4a;
+  --ink-muted: #7a7a7a;
+
+  /* Status, badges only. These ship WITH a text label, never colour alone:
+     #FCC522 vs #1ED760 fails colourblind separation (protan dE 3.8, needs >=8),
+     and both fall below 3:1 contrast on the background. See track/todo.md 7. */
+  --status-good: #1ed760;
+  --status-warn: #fcc522;
+  --status-bad: #ff3737;
+
+  /* Interactive */
+  --button: #4266de;
+  --button-hover: #5b7cea;
+  --checkbox: #008b8b;
+
+  /* Charts, validated against the #EFEFEF surface. Do not substitute by eye.
+     Categorical is capped at THREE; a 4th fails every check. */
+  --cat-1: #3538cd;
+  --cat-2: #b54708;
+  --cat-3: #a21caf;
+
+  /* Sequential, ordered low -> high */
+  --seq-1: #60a5fa;
+  --seq-2: #2563eb;
+  --seq-3: #1e3a8a;
+
+  /* Chart furniture, recessive by design */
+  --grid: #d7dee5;
+  --axis: #c6ccd2;
+
+  /* Layout */
+  --nav-width: 220px;
+}

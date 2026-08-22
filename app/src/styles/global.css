@@ -1,0 +1,168 @@
+@import "./tokens.css";
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  color: var(--ink-primary);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Sub-headers are "just bold" per style.md, not a larger size. */
+h1 {
+  font-size: var(--fs-header);
+  font-weight: var(--fw-semibold);
+}
+
+h2,
+h3 {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+a {
+  color: var(--button);
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---- App shell: fixed left nav + scrollable right content ---- */
+
+.app-shell {
+  display: flex;
+  height: 100%;
+}
+
+.app-nav {
+  flex: 0 0 var(--nav-width);
+  background: var(--surface);
+  border-right: 1px solid var(--border-1);
+  padding: var(--gap-lg);
+  overflow-y: auto;
+}
+
+.app-content {
+  flex: 1 1 auto;
+  padding: var(--pad-outer);
+  overflow-y: auto;
+}
+
+/* ---- Shared primitives ---- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-size: var(--fs-header);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--gap-sm);
+}
+
+.page-subtitle {
+  color: var(--ink-secondary);
+  margin-bottom: 16px;
+}
+
+.btn {
+  background: var(--button);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px var(--gap-md);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background 300ms ease-in-out, border-color 300ms ease-in-out,
+    color 300ms ease-in-out;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--ink-primary);
+  border: 1px solid var(--border-2);
+}
+
+.btn--secondary:hover {
+  background: transparent;
+  border-color: var(--button-hover);
+  color: var(--button-hover);
+}
+
+/* Status badge, colour is ALWAYS paired with the text label inside it. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  padding: 2px var(--gap-sm);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink-primary);
+}
+
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot, var(--ink-muted));
+}
+
+.badge--good {
+  --dot: var(--status-good);
+}
+.badge--warn {
+  --dot: var(--status-warn);
+}
+.badge--bad {
+  --dot: var(--status-bad);
+}
+
+/* Shared legend swatch (charts in Impact + EvidenceBar). */
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+
+.empty-state {
+  color: var(--ink-secondary);
+  padding: var(--gap-lg) 0;
+}

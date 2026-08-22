@@ -1,0 +1,102 @@
+.back-link {
+  display: inline-block;
+  font-size: var(--fs-small);
+  margin-bottom: var(--gap-sm);
+}
+
+/* The one-sentence why is the largest text on the page. */
+.why {
+  font-size: var(--fs-header);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+}
+
+.why-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-md);
+}
+
+.chip {
+  font-size: var(--fs-small);
+  padding: 2px var(--gap-sm);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  color: var(--ink-secondary);
+}
+
+.hint {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  margin: 6px 0 var(--gap-md);
+}
+
+.evidence,
+.rejected,
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.evidence li {
+  display: flex;
+  gap: var(--gap-md);
+  padding: var(--gap-sm) 0;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.evidence li:last-child {
+  border-bottom: none;
+}
+
+.evidence-weight {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+}
+
+.confidence-line {
+  margin-top: var(--gap-md);
+  padding-top: var(--gap-md);
+  border-top: 1px solid var(--border-1);
+}
+
+.action-label {
+  font-size: var(--fs-header);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 6px;
+}
+
+.action-label + .muted {
+  margin-bottom: var(--gap-md);
+}
+
+.rejected li,
+.timeline li {
+  padding: var(--gap-sm) 0;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.rejected li:last-child,
+.timeline li:last-child {
+  border-bottom: none;
+}
+
+.timeline li {
+  display: flex;
+  gap: var(--gap-md);
+}
+
+.timeline li .muted {
+  flex: 0 0 96px;
+  font-size: var(--fs-small);
+}

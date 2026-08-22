@@ -1,0 +1,52 @@
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  margin-bottom: 20px;
+}
+
+/* Placeholder mark, replace with the real logo. */
+.nav-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius);
+  background: var(--button);
+  flex: 0 0 auto;
+}
+
+.nav-brand-name {
+  font-size: var(--fs-header);
+  font-weight: var(--fw-bold);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-bottom: var(--gap-sm);
+}
+
+.nav-link {
+  display: block;
+  padding: var(--gap-sm) 12px;
+  border-radius: var(--radius);
+  color: var(--ink-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.nav-link:hover {
+  background: var(--bg);
+}
+
+.nav-link--active {
+  background: var(--bg);
+  color: var(--ink-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.nav-signout {
+  width: 100%;
+}

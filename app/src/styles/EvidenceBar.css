@@ -1,0 +1,66 @@
+.ebar {
+  margin: var(--gap-md) 0;
+}
+
+.ebar-track {
+  position: relative;
+  display: flex;
+  height: 20px;
+  background: var(--bg);
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+
+/* 2px surface gap between segments, so adjacent fills stay distinct. */
+.ebar-seg {
+  height: 100%;
+  border-right: 2px solid var(--surface);
+}
+
+.ebar-seg:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.ebar-seg:last-child {
+  border-right: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.ebar-threshold {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--ink-primary);
+}
+
+.ebar-threshold-label {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+
+.ebar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md);
+  font-size: var(--fs-small);
+  color: var(--ink-secondary);
+  margin-bottom: var(--gap-sm);
+}
+
+.ebar-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ebar-verdict {
+  font-size: var(--fs-small);
+  color: var(--ink-secondary);
+}
