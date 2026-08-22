@@ -2,7 +2,7 @@
 https://dev-re-engage.netlify.app
 
 ## Pitch Recording
-{}
+https://youtu.be/d7Tx8VJ-jcA
 
 ## Lab
 4 - Customer Experience & Engagement: The Moment Before They Leave
