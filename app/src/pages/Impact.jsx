@@ -1,10 +1,13 @@
 import React from "react";
 import { DIAGNOSES, IMPACT } from "../HardCodedData";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES, RouteEnum } from "../constants/RouteEnum";
 import "../styles/Impact.css";
 
 const money = (n) => "RM" + n.toLocaleString();
 
 export default function Impact() {
+  usePageTitle(PAGE_TITLES[RouteEnum.IMPACT]);
   const net = IMPACT.retainedRevenueNet - IMPACT.concessionCost;
 
   return (

@@ -1,9 +1,9 @@
 import { ActionEnum } from "./constants/ActionEnum";
 
 /* ---- Branding ---- */
-/* Change these two lines to rename the app everywhere. Logo: swap
-   public/logo.svg and the mark in styles/Nav.css. */
-export const APP_NAME = "AppName";
+/* Change these two lines to rename the app everywhere.
+   Logo lives in components/Logo.jsx. */
+export const APP_NAME = "Re-Engage";
 export const APP_TAGLINE = "Retention that acts, not notifies.";
 
 /* Single source of demo data. No backend, swap these exports for API calls later.
@@ -350,7 +350,7 @@ export const CREDENTIALS = { username: "admin1", password: "admin" };
 export const DEMO_USER = {
   name: "Admin",
   username: "admin1",
-  email: "admin1@appname.io",
+  email: "admin1@re-engage.io",
 };
 
 export const checkLogin = (username, password) =>

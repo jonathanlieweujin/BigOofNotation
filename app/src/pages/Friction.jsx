@@ -1,10 +1,13 @@
 import React from "react";
 import { FRICTION } from "../HardCodedData";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES, RouteEnum } from "../constants/RouteEnum";
 import "../styles/Friction.css";
 
 const money = (n) => "RM" + n.toLocaleString();
 
 export default function Friction() {
+  usePageTitle(PAGE_TITLES[RouteEnum.FRICTION]);
   const max = Math.max(...FRICTION.map((f) => f.arrAffected));
   const sorted = [...FRICTION].sort((a, b) => b.arrAffected - a.arrAffected);
 

@@ -9,6 +9,8 @@ import {
   rankedAccounts,
 } from "../HardCodedData";
 import { customerPath } from "../constants/RouteEnum";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES, RouteEnum } from "../constants/RouteEnum";
 import "../styles/Customers.css";
 
 const money = (n) => "RM" + n.toLocaleString();
@@ -16,6 +18,7 @@ const money = (n) => "RM" + n.toLocaleString();
 const TIER_ORDER = ["HIGH", "MEDIUM", "LOW"];
 
 export default function Customers() {
+  usePageTitle(PAGE_TITLES[RouteEnum.CUSTOMERS]);
   const [diagnosis, setDiagnosis] = useState(null);
   const [tier, setTier] = useState(null);
   const [query, setQuery] = useState("");

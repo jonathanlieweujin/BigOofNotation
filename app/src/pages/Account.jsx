@@ -1,7 +1,10 @@
 import React from "react";
 import { APP_NAME, DEMO_USER } from "../HardCodedData";
+import usePageTitle from "../hooks/usePageTitle";
+import { PAGE_TITLES, RouteEnum } from "../constants/RouteEnum";
 
 export default function Account({ onSignOut }) {
+  usePageTitle(PAGE_TITLES[RouteEnum.ACCOUNT]);
   return (
     <>
       <h1 className="page-title">Account</h1>

@@ -10,11 +10,15 @@ import {
 } from "../HardCodedData";
 import EvidenceBar from "../components/EvidenceBar";
 import { RouteEnum } from "../constants/RouteEnum";
+import usePageTitle from "../hooks/usePageTitle";
 import "../styles/CustomerDetail.css";
 
 export default function CustomerDetail() {
   const { id } = useParams();
   const a = getAccount(id);
+
+  /* Called before the early return so the hook order stays stable. */
+  usePageTitle(a ? a.name : "Customer not found");
 
   if (!a) {
     return (

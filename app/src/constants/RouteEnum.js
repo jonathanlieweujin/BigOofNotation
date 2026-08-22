@@ -17,6 +17,15 @@ export const NAV_ITEMS = [
   { to: RouteEnum.ACCOUNT, label: "Account" },
 ];
 
+/* Browser tab titles, rendered as "Re-Engage | <suffix>". */
+export const PAGE_TITLES = {
+  SIGN_IN: "Log-In",
+  [RouteEnum.CUSTOMERS]: "Customers",
+  [RouteEnum.FRICTION]: "Friction",
+  [RouteEnum.IMPACT]: "Impact",
+  [RouteEnum.ACCOUNT]: "Account",
+};
+
 /* Build a detail path for one customer. */
 export const customerPath = (id) => `${RouteEnum.CUSTOMERS}/${id}`;
 
