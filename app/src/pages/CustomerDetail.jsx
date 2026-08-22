@@ -29,8 +29,8 @@ export default function CustomerDetail() {
     );
   }
 
-  const diagnosis = DIAGNOSES[a.diagnosis];
-  const need = NEED_STATES[diagnosis.needState];
+  const diagnosis = a.diagnosis ? DIAGNOSES[a.diagnosis] : null;
+  const need = diagnosis ? NEED_STATES[diagnosis.needState] : null;
   const tier = CONFIDENCE_TIERS[a.tier];
   const action = a.recommended ? ACTIONS[a.recommended] : null;
 
@@ -57,8 +57,12 @@ export default function CustomerDetail() {
         <p className="why">{a.why}</p>
         <div className="why-meta">
           <span className={`badge badge--${tier.badge}`}>{tier.label}</span>
-          <span className="chip">{diagnosis.label}</span>
-          <span className="chip">Need: {need.label}</span>
+          {diagnosis ? (
+            <span className="chip">{diagnosis.label}</span>
+          ) : (
+            <span className="chip">Unclassified, no cause fit the taxonomy</span>
+          )}
+          {need && <span className="chip">Need: {need.label}</span>}
         </div>
       </div>
 
@@ -75,7 +79,7 @@ export default function CustomerDetail() {
             const w = EVIDENCE_WEIGHTS[e.type];
             return (
               <li key={i}>
-                <span className="evidence-weight">{w.weight}</span>
+                <span className="evidence-weight">{e.weight ?? w.weight}</span>
                 <span>
                   <strong>{w.label}</strong>
                   <br />

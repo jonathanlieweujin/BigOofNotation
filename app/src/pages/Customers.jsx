@@ -104,7 +104,13 @@ export default function Customers() {
                           <Link to={customerPath(a.id)}>{a.name}</Link>
                         </td>
                         <td>{money(a.ltv)}</td>
-                        <td>{DIAGNOSES[a.diagnosis].label}</td>
+                        <td>
+                          {a.diagnosis ? (
+                            DIAGNOSES[a.diagnosis].label
+                          ) : (
+                            <span className="muted">Unclassified</span>
+                          )}
+                        </td>
                         <td>
                           {/* Colour always paired with its label, never colour alone. */}
                           <span className={`badge badge--${t.badge}`}>

@@ -16,8 +16,10 @@ export default function EvidenceBar({ evidence, score, tier }) {
   const threshold = CONFIDENCE_TIERS.HIGH.min;
 
   // Heaviest first, so the biggest contributor reads at the start of the bar.
+  // `e.weight` (set per-account in HardCodedData.js) may include a bonus on
+  // top of the type's base weight, so it takes precedence over the lookup.
   const sorted = [...evidence]
-    .map((e) => ({ ...e, ...EVIDENCE_WEIGHTS[e.type] }))
+    .map((e) => ({ ...EVIDENCE_WEIGHTS[e.type], ...e }))
     .sort((x, y) => y.weight - x.weight);
 
   const segments = sorted.slice(0, 3).map((s, i) => ({

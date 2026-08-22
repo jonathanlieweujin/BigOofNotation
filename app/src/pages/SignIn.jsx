@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { APP_NAME, APP_TAGLINE, checkLogin } from "../HardCodedData";
+import { APP_NAME, APP_TAGLINE } from "../HardCodedData";
+import { supabase } from "../supabaseClient";
 import Logo from "../components/Logo";
 import usePageTitle from "../hooks/usePageTitle";
 import { PAGE_TITLES } from "../constants/RouteEnum";
 import "../styles/SignIn.css";
 
-export default function SignIn({ onSignIn }) {
+export default function SignIn() {
   usePageTitle(PAGE_TITLES.SIGN_IN);
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    if (checkLogin(username, password)) {
-      setError("");
-      onSignIn();
+    setSubmitting(true);
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    setSubmitting(false);
+    if (signInError) {
+      setError("Incorrect email or password.");
     } else {
-      setError("Incorrect username or password.");
+      setError("");
+      /* No onSignIn() call needed: App.jsx listens to Supabase's
+         onAuthStateChange and updates itself once the session lands. */
     }
   };
 
@@ -30,14 +39,15 @@ export default function SignIn({ onSignIn }) {
         </div>
         <p className="signin-tagline">{APP_TAGLINE}</p>
 
-        <label className="signin-label" htmlFor="username">
-          Username
+        <label className="signin-label" htmlFor="email">
+          Email
         </label>
         <input
-          id="username"
+          id="email"
           className="signin-input"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           autoComplete="username"
           autoFocus
         />
@@ -60,8 +70,8 @@ export default function SignIn({ onSignIn }) {
           </p>
         )}
 
-        <button className="btn signin-submit" type="submit">
-          Sign in
+        <button className="btn signin-submit" type="submit" disabled={submitting}>
+          {submitting ? "Signing in…" : "Sign in"}
         </button>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import SignIn from "./pages/SignIn";
@@ -8,27 +8,34 @@ import Friction from "./pages/Friction";
 import Impact from "./pages/Impact";
 import Account from "./pages/Account";
 import { RouteEnum } from "./constants/RouteEnum";
+import { supabase } from "./supabaseClient";
 
-/* Auth is a placeholder: any submit signs you in. No backend by design. */
+/* Auth is real now, backed by Supabase. `session` is undefined while we're
+   still checking (avoids a flash of the sign-in page on refresh), null when
+   signed out, and the Supabase session object when signed in. */
 export default function App() {
-  const [signedIn, setSignedIn] = useState(
-    () => sessionStorage.getItem("signedIn") === "1"
-  );
+  const [session, setSession] = useState(undefined);
 
-  const signIn = () => {
-    sessionStorage.setItem("signedIn", "1");
-    setSignedIn(true);
-  };
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setSession(data.session));
 
-  const signOut = () => {
-    sessionStorage.removeItem("signedIn");
-    setSignedIn(false);
-  };
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, newSession) => setSession(newSession)
+    );
 
-  if (!signedIn) {
+    return () => listener.subscription.unsubscribe();
+  }, []);
+
+  const signOut = () => supabase.auth.signOut();
+
+  if (session === undefined) {
+    return null; /* still checking for an existing session */
+  }
+
+  if (!session) {
     return (
       <Routes>
-        <Route path="*" element={<SignIn onSignIn={signIn} />} />
+        <Route path="*" element={<SignIn />} />
       </Routes>
     );
   }
@@ -48,7 +55,7 @@ export default function App() {
           <Route path={RouteEnum.IMPACT} element={<Impact />} />
           <Route
             path={RouteEnum.ACCOUNT}
-            element={<Account onSignOut={signOut} />}
+            element={<Account user={session.user} onSignOut={signOut} />}
           />
           <Route
             path="*"
